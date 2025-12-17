@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mackenzie Noble</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS STYLES - This makes it pretty */
+        :root {
+            --primary-pink: #ffb7b2;
+            --light-pink: #fff0f5;
+            --dark-text: #4a4a4a;
+            --white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%); /* Soft Pink Gradient */
+            font-family: 'Quicksand', sans-serif;
+            color: var(--dark-text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: var(--white);
+            width: 100%;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            position: sticky;
+            top: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff8fa3;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 800px;
+            text-align: center;
+            padding: 60px 20px;
+            background-color: rgba(255, 255, 255, 0.6);
+            margin-top: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(255, 183, 178, 0.3);
+        }
+
+        /* Cursive Title */
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem;
+            color: #d66d75;
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #777;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        /* Bio Text */
+        .bio {
+            line-height: 1.8;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* Personality Tags */
+        .tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: var(--primary-pink);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">More about me</a>
+        <a href="#">Resume</a>
+        <a href="#">Content</a>
+    </nav>
+
+    <div class="container">
+        <h1>Mackenzie Noble</h1>
+        <h2>Broadcast Journalism & Hospitality</h2>
+        
+        <p class="bio">
+            Hello! I'm a senior at the <strong>University of Nebraska-Lincoln</strong> based in Lincoln, but originally from <strong>West Dundee, Illinois</strong>.
+            <br><br>
+            I am currently studying Broadcast Journalism with a minor in Hospitality, Restaurant and Tourism Management (HRTM). I love creating content that connects with people!
+        </p>
+
+        <div class="tags">
+            <span class="tag">Outgoing</span>
+            <span class="tag">Creative</span>
+            <span class="tag">Friendly</span>
+            <span class="tag">Exuberant</span>
+        </div>
+    </div>
+
+</body>
+</html>
