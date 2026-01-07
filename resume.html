@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mackenzie Noble - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-pink: #ffb7b2;
+            --light-pink: #fff0f5;
+            --dark-text: #2c2c2c; /* Slightly darker for readability */
+            --white: #ffffff;
+            --header-color: #d66d75;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%);
+            font-family: 'Quicksand', sans-serif;
+            color: var(--dark-text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Navigation Bar (Matches Home Page) */
+        nav {
+            background-color: var(--white);
+            width: 100%;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff8fa3;
+        }
+
+        /* Resume Container */
+        .resume-container {
+            max-width: 850px;
+            width: 90%;
+            background-color: rgba(255, 255, 255, 0.9);
+            margin: 40px 0;
+            padding: 60px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(214, 109, 117, 0.2);
+        }
+
+        /* Section Headers */
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: var(--header-color);
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        h2.section-title {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700; /* Thick font as requested */
+            font-size: 1.8rem;
+            color: var(--dark-text);
+            text-transform: uppercase;
+            border-bottom: 3px solid var(--primary-pink);
+            padding-bottom: 10px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        /* Job & School Titles */
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .job-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #d66d75;
+        }
+
+        .company {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .date {
+            font-weight: 600;
+            color: #777;
+            font-size: 0.95rem;
+        }
+
+        /* Lists */
+        ul {
+            margin-top: 10px;
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .skill-item {
+            background: var(--light-pink);
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            border: 1px solid var(--primary-pink);
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            .job-header {
+                flex-direction: column;
+            }
+            .resume-container {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">More about me</a>
+        <a href="resume.html" style="color: #d66d75;">Resume</a>
+        <a href="content.html">Content</a>
+    </nav>
+
+    <div class="resume-container">
+        <h1>Mackenzie Noble</h1>
+        <p style="text-align: center; font-size: 1.1rem;">Broadcast Journalism & Hospitality | University of Nebraska-Lincoln</p>
+
+        <h2 class="section-title">Education</h2>
+        
+        <div class="job-header">
+            <span class="company">University of Nebraska-Lincoln</span>
+            <span class="date">2022 – 2026 (Expected)</span>
+        </div>
+        <div style="margin-bottom: 10px;">
+            <strong>Bachelor of Journalism</strong><br>
+            Major: Broadcast Journalism | Minor: Hospitality, Restaurant and Tourism Management (HRTM)<br>
+            <strong>GPA: 3.5</strong>
+        </div>
+        <ul>
+            <li>Member of <strong>Alpha Xi Delta-Rho Chapter</strong> (2022–Present).</li>
+            <li><strong>Campus Activities Director</strong> of Alpha Xi Delta-Rho Chapter (2023–Present).</li>
+        </ul>
+
+        <h2 class="section-title">Experience</h2>
+
+        <div class="job-header">
+            <span class="job-title">Reporter & Producer Intern</span>
+            <span class="date">2025 – Present</span>
+        </div>
+        <div class="company">10/11 News</div>
+        <ul>
+            <li><strong>Conducted interviews</strong> with community members and officials for news stories.</li>
+            <li>Researched local events and issues to provide <strong>accurate reporting</strong>.</li>
+            <li>Wrote clear and concise articles for <strong>broadcast and online publication</strong>.</li>
+            <li>Collaborated with producers to develop <strong>engaging news segments</strong>.</li>
+            <li><strong>Edited video footage</strong> and audio for clarity and quality before airing.</li>
+            <li>Monitored <strong>breaking news events</strong> for timely coverage opportunities.</li>
+        </ul>
+
+        <div class="job-header">
+            <span class="job-title">Server</span>
+            <span class="date">2025 – Present</span>
+        </div>
+        <div class="company">Catalyst</div>
+        <ul>
+            <li>Provided <strong>excellent customer service</strong> in a fast-paced dining environment.</li>
+            <li>Served <strong>20-30 tables per shift</strong> while maintaining high service standards.</li>
+            <li>Handled customer complaints calmly and <strong>resolved issues quickly</strong>.</li>
+        </ul>
+
+        <div class="job-header">
+            <span class="job-title">Student Leader / Executive Producer</span>
+            <span class="date">2024 – 2025</span>
+        </div>
+        <div class="company">College of Journalism</div>
+        <ul>
+            <li><strong>Anchored over 30 shows</strong> and <strong>Produced 50+ shows</strong>.</li>
+            <li>Winner of a <strong>First Place BEA Award</strong> for a show I produced.</li>
+            <li>Anchored, produced, and coordinated the involvement of over <strong>50 students and faculty</strong> for the 2024 election show.</li>
+            <li>Delivered <strong>breaking news updates</strong> during live broadcasts and special reports.</li>
+            <li>Facilitated student engagement through organizing workshops and events.</li>
+        </ul>
+
+        <div class="job-header">
+            <span class="job-title">Receptionist</span>
+            <span class="date">2017 – 2022</span>
+        </div>
+        <div class="company">Wellness and Nutrition Center</div>
+        <ul>
+            <li>Greeted clients warmly and <strong>managed front desk operations</strong> daily.</li>
+            <li>Answered around <strong>20 phone calls a day</strong> and addressed inquiries professionally.</li>
+            <li>Scheduled appointments efficiently using electronic systems.</li>
+        </ul>
+
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item">Broadcast Writing</div>
+            <div class="skill-item">Video Editing (Adobe/EDIUS)</div>
+            <div class="skill-item">On-Air Experience</div>
+            <div class="skill-item">Public Speaking</div>
+            <div class="skill-item">Breaking News Coverage</div>
+            <div class="skill-item">Social Media Management</div>
+            <div class="skill-item">Customer Service</div>
+            <div class="skill-item">Leadership</div>
+            <div class="skill-item">Deadline Management</div>
+        </div>
+
+    </div>
+
+</body>
+</html>
