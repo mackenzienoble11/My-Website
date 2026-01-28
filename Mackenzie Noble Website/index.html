@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mackenzie Noble</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- THEME SETTINGS --- */
+        :root {
+            --bg-pink: #fff0f5;       /* Lavender Blush */
+            --dot-pink: #ffc0cb;      /* Polka Dot Color */
+            --dark-pink: #d66d75;     /* Darker pink for text/headers */
+            --bubble-pink: #ffe4e1;   /* Misty Rose for skills */
+            --white: #ffffff;
+            --text-color: #4a4a4a;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+            color: var(--text-color);
+            /* Cute Polka Dot Pattern Background */
+            background-color: var(--bg-pink);
+            background-image: radial-gradient(var(--dot-pink) 15%, transparent 16%), radial-gradient(var(--dot-pink) 15%, transparent 16%);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+        }
+
+        /* --- NAVIGATION TABS --- */
+        nav {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(214, 109, 117, 0.2);
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin: 0 15px;
+            padding: 10px 15px;
+            text-transform: uppercase;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            background-color: var(--dark-pink);
+            color: white;
+        }
+
+        /* --- LAYOUT & CARDS --- */
+        section {
+            padding: 80px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(214, 109, 117, 0.15);
+            margin-bottom: 40px;
+            border: 2px solid var(--white);
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1.main-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            color: var(--dark-pink);
+            margin: 0 0 20px 0;
+            text-align: center;
+        }
+
+        h2.tab-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: var(--dark-pink);
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px solid var(--bubble-pink);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .center-header { text-align: center; width: 100%; }
+
+        h3 {
+            color: var(--dark-pink);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        /* --- HOME PAGE SPECIFICS --- */
+        .headshot-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .headshot {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 50%; /* Circular */
+            border: 8px solid var(--white);
+            box-shadow: 0 0 0 4px var(--dark-pink), 0 10px 20px rgba(0,0,0,0.1); /* The "Cute Frame" effect */
+        }
+
+        .contact-info {
+            background-color: var(--bubble-pink);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+            font-weight: 600;
+        }
+
+        .contact-info a { color: var(--dark-pink); }
+
+        /* --- RESUME SPECIFICS --- */
+        .resume-section-header {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-color);
+            border-bottom: 2px solid var(--dark-pink);
+            padding-bottom: 5px;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .job-entry {
+            margin-bottom: 30px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+
+        .job-title { font-weight: 700; font-size: 1.1rem; color: var(--dark-pink); }
+        .job-company { font-weight: 700; }
+        .job-date { font-style: italic; color: #777; }
+
+        ul { margin-top: 5px; padding-left: 20px; }
+        li { margin-bottom: 6px; }
+
+        /* SKILLS BUBBLES */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .skill-bubble {
+            background-color: var(--bubble-pink);
+            color: var(--text-color);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            border: 1px solid var(--dark-pink);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* --- CONTENT (VIDEOS) --- */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .video-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 250px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-desc {
+            padding: 20px;
+        }
+        .video-title { font-weight: 700; color: var(--dark-pink); font-size: 1.2rem; margin-bottom: 10px; display: block; }
+        .video-text { font-size: 0.95rem; }
+
+        /* BUTTONS */
+        .writing-links {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid var(--bubble-pink);
+        }
+        
+        .writing-btn {
+            display: inline-block;
+            background-color: var(--dark-pink);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .writing-btn:hover {
+            transform: scale(1.05);
+            background-color: #c55d65;
+        }
+
+        /* --- REFERENCES --- */
+        .reference-box {
+            background-color: var(--white);
+            border-left: 5px solid var(--dark-pink);
+            padding: 20px 30px;
+            margin-bottom: 40px;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            h1.main-title { font-size: 3.5rem; }
+            .job-header { flex-direction: column; }
+            .headshot { width: 200px; height: 200px; }
+            nav a { margin: 0 5px; font-size: 0.8rem; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT ME</a>
+        <a href="#resume">RESUME</a>
+        <a href="#content">CONTENT</a>
+        <a href="#references">REFERENCES</a>
+    </nav>
+
+    <section id="home">
+        <div class="card" style="text-align: center;">
+            <h1 class="main-title">Mackenzie Noble</h1>
+            
+            <div class="headshot-container">
+                <img src="my-headshot.jpg" alt="Mackenzie Noble" class="headshot">
+            </div>
+
+            <p>Hello! I am a senior at the University of Nebraska-Lincoln. I am originally from West Dundee, Illinois.</p>
+            <p>I am currently studying Broadcast Journalism with a minor in Hospitality, Restaurant and Tourism Management (HRTM). I love creating content that connects with people through storytelling!</p>
+            
+            <hr style="border: 0; border-top: 1px dashed var(--dark-pink); margin: 30px 0;">
+
+            <p style="font-weight: bold; color: var(--dark-pink);">I asked 14 of my closest friends to pick one word to describe me and these are some of the top results:</p>
+            <p style="font-style: italic;">Eccentric, Authentic, Exuberant, Radiant, Selfless, Charismatic, Determined, Reliant, Joyous, Unconditional, Fierce, Pure, Addicting, Effervescent</p>
+
+            <div class="contact-info">
+                Phone: 847-450-4599<br>
+                Email: <a href="mailto:mackenzielyn6@gmail.com">mackenzielyn6@gmail.com</a><br>
+                Address: 2333 Glenmoor Dr. West Dundee, IL. 60118<br>
+                <a href="https://www.linkedin.com/in/mackenzie-noble-02b0a9234/" target="_blank">LinkedIn Profile</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="card">
+            <div class="center-header"><h2 class="tab-title">About Me</h2></div>
+
+            <h3>WHO IS THIS MACKENZIE NOBLE GIRL?</h3>
+            <p>My name is Mackenzie Noble, as we’ve discussed. But who am I? The easy answer would be: I am a college student that is trying to find out what I want out of life. I have two miniature dachshunds. I like hanging out with my friends and family for fun. But, there is a lot more to me than that.</p>
+
+            <h3>WHO I AM.</h3>
+            <p>I am someone who brings energy and positivity into every space I enter. I challenge myself to begin and end each day with a smile, grounding my mindset in gratitude and intention. One of my daily habits is making my bed each morning. This works as an intentional routine that ensures I start the day with accomplishment and discipline.</p>
+            
+            <p>At the core of who I am are three main values: faith, loyalty, and community.</p>
+            <p><strong>Faith</strong> plays a central role in my life. I hold my Christian faith close to my heart, as it provides me with purpose, identity, and a strong moral foundation. It shapes the way I approach both my personal life and the way I interact with others.</p>
+            <p><strong>Loyalty</strong> is a value I take seriously. I believe betrayal hurts bad. When I commit to something, it becomes a priority, and my word carries weight. If I say I will be there, I will be there. A lighthearted but fitting example of this is my dedication to Chicago sports. After 22 years as a fan, my loyalty has never wavered, and it never will. That same steadfast commitment defines how I approach relationships, teams, and responsibilities.</p>
+            <p><strong>Community</strong> is a value I came to fully appreciate later in life. In high school, I was heavily involved. I was student body president, president of three other clubs, and leading the spirit squad for the student section. While I was well known, I felt disconnected. I was hesitant to be vulnerable and I was content with keeping a small circle, even if it meant feeling alone at times.</p>
+            <p>That perspective shifted in college when I joined a sorority. Initially, I was unsure of how I would do in such a large community. Over time, it became one of the most transformative experiences of my life. I found a group of women who not only accepted me as I am, but consistently encouraged me to grow, lead, and believe in myself. Over the past four years, I have had the privilege of learning from those before me and leading those who came after me. My pledge class, in particular, redefined what community means to me. The personal growth I have experienced has been profound, and it has shown me the power of belonging and feeling truly worthy. “Worthy” is, in fact, my favorite word. It connects to every aspect of life. While I am no psychologist, I firmly believe emotional well-being influences every part of a person’s success and fulfillment, and knowing that even one person finds worth in you, changes everything.</p>
+            
+            <div style="margin-top: 50px; margin-bottom: 50px;">
+                <p style="text-align: center; font-weight: bold; font-size: 1.1rem; margin-bottom: 25px; color: var(--dark-pink);">
+                    So, who am I? I hope this answered your question. If it doesn't, watch this video to meet me.
+                </p>
+
+                <div class="video-placeholder" style="border-radius: 10px; background-color: #000; margin-bottom: 30px;">
+                    <iframe width="100%" height="400" src="https://www.youtube.com/embed/yH3p2Sm8-Os" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <h3>SOME OTHER THINGS ABOUT ME</h3>
+            <p>I value experiences over material possessions. I would much rather go to an event than buy a new pair of shoes, or travel to a new destination than purchase a luxury item. Meaningful moments and shared experiences are what stay with me.</p>
+            <p>I also have a deep love for performing and public speaking. I enjoy singing and dancing, even if the music is often playing only in my head. Karaoke is one of my favorite things to do. Any day, any time, any place, I’m in. But that just goes to show how drawn I am to the spotlight– Or maybe it's the spotlight that is drawn to me. I am confident speaking to any audience and have emceed numerous events. I take pride in standing apart in a positive way. I am a risk-taker, driven by passion and determination, and willing to do what it takes to succeed.</p>
+            <p>But most of all, I am silly. My favorite TV show is Spongebob. I have an older brother and he is the funniest person most people have ever met. I am only about half as funny as him. Growing up with him has made me who I am today. He is your run-of-the-mill older brother. Annoying, disorganized and always knows how to push my buttons. But besides all of that, he is my favorite person in the world. He is a fireman, so a local hero, but he has always been my hero. Someone who has not only supported me through it all, but been there to protect me. He will never admit it, but I know he is my number one fan. It has been a pleasure growing up with him. Having a sibling is the most interesting relationship to me. The person who shares DNA with you. At least being the youngest, I have never had to live a day without my brother being part of my life, and I hope I never have to. The person who you share a family with, the most complicated type of relationship. The person that no matter how hard you try they will always have a piece of you in some way. For me, my brother is my best friend. Being away from home for college, we don’t talk a lot, but he is still my favorite person, because he knows me better than anyone else in this world, and I don’t ever think that will change no matter what happens. His compassion, humor and values stand him apart from anyone I have met.</p>
+
+            <h3>WORDS THAT MY FRIENDS DESCRIBE ME AS:</h3>
+            <ul>
+                <li>Eccentric</li>
+                <li>Authentic</li>
+                <li>Exuberant</li>
+                <li>Funny</li>
+                <li>Radiant</li>
+                <li>Selfless</li>
+                <li>Charismatic</li>
+                <li>Determined</li>
+                <li>Reliant</li>
+                <li>Joyous</li>
+                <li>Unconditional</li>
+                <li>Fierce</li>
+                <li>Pure</li>
+                <li>Addicting</li>
+                <li>Effervescent</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="resume">
+        <div class="card">
+            <div class="center-header"><h2 class="tab-title">Resume</h2></div>
+
+            <div class="resume-section-header">EDUCATION</div>
+            
+            <div class="job-entry">
+                <div class="job-header">
+                    <span class="job-company">University of Nebraska-Lincoln</span>
+                    <span class="job-date">August 2022-May 2026</span>
+                </div>
+                <div>Bachelor of Arts. Broadcast Journalism Major, Hospitality, Restaurant & Tourism Management Minor.</div>
+                <div>Cumulative GPA: 3.56</div>
+                <ul>
+                    <li>Executive Producer of Nebraska Nightly</li>
+                    <li>Head Anchor of Nebraska Nightly</li>
+                    <li>BEA 1st Place for Television Newscast</li>
+                    <li>Executive Producer of the Sisterhood Video</li>
+                    <li>2025 Homecoming Winner</li>
+                    <li>Campus Activities Director for Alpha Xi Delta</li>
+                    <li>Song Chair for Alpha Xi Delta</li>
+                    <li>Morale Team Leader for Alpha Xi Delta</li>
+                </ul>
+            </div>
+
+            <div class="job-entry">
+                <div class="job-header">
+                    <span class="job-company">Harry D. Jacobs High School</span>
+                    <span class="job-date">August 2018-May 2022</span>
+                </div>
+                <div>Cumulative GPA: 3.8</div>
+                <ul>
+                    <li>President of the Student Body</li>
+                    <li>President of Student Mentorship</li>
+                    <li>Vice President of the Senior Class</li>
+                    <li>President of the Junior Class</li>
+                    <li>President of the Sophomore Class</li>
+                    <li>Treasurer of the Key Club</li>
+                    <li>Student Section Leader</li>
+                    <li>Varsity Volleyball</li>
+                    <li>Yearbook Editor</li>
+                    <li>NHS member</li>
+                    <li>Member of the Student Leadership</li>
+                </ul>
+            </div>
+
+            <div class="resume-section-header">WORK EXPERIENCE</div>
+
+            <div class="job-entry">
+                <div class="job-header">
+                    <span class="job-title">Reporter & Producer Intern</span>
+                    <span class="job-company">10/11 News</span>
+                    <span class="job-date">2025–2026</span>
+                </div>
+                <ul>
+                    <li>Conduct interviews with community members and public officials for broadcast stories</li>
+                    <li>Research local events and issues to ensure accurate and ethical reporting</li>
+                    <li>Write clear, concise scripts and articles for on-air and online platforms</li>
+                    <li>Edit video and audio for clarity and broadcast quality</li>
+                    <li>Collaborate with producers to develop engaging news, weather, and sports segments</li>
+                    <li>Monitor breaking news and assist with live and special coverage</li>
+                    <li>Coordinate rundown timing and segment length in a newsroom setting</li>
+                </ul>
+            </div>
+
+            <div class="job-entry">
+                <div class="job-header">
+                    <span class="job-title">Student Leader / Executive Producer</span>
+                    <span class="job-company">College of Journalism</span>
+                    <span class="job-date">2024–2025</span>
+                </div>
+                <ul>
+                    <li>Anchored over 30 live broadcasts</li>
+                    <li>Produced 50+ student-led news shows</li>
+                    <li>Anchored, produced, and coordinated coverage involving 50+ students and faculty for the 2024 election show</li>
+                    <li>Delivered breaking news updates during live broadcasts and special reports</li>
+                    <li>Wrote scripts ensuring clarity, accuracy, and audience engagement</li>
+                    <li>Earned First Place BEA Award for a produced show</li>
+                </ul>
+            </div>
+
+            <div class="job-entry">
+                <div class="job-header">
+                    <span class="job-title">Server</span>
+                    <span class="job-company">Catalyst</span>
+                    <span class="job-date">2025–Present</span>
+                </div>
+                <ul>
+                    <li>Provided excellent customer service in a fast-paced dining environment</li>
+                    <li>Managed 20–30 tables per shift while maintaining accuracy and professionalism</li>
+                    <li>Handled customer concerns calmly and resolved issues efficiently</li>
+                    <li>Consistently earned approximately 30% of sales in tips</li>
+                </ul>
+            </div>
+
+            <div class="job-entry">
+                <div class="job-header">
+                    <span class="job-title">Server</span>
+                    <span class="job-company">Applebee’s</span>
+                    <span class="job-date">2024–2025</span>
+                </div>
+                <ul>
+                    <li>Delivered food and beverages to guests within 2–3 minutes of completion</li>
+                    <li>Followed all food safety and sanitation guidelines to maintain a clean work environment</li>
+                    <li>Adapted quickly to high-volume rushes while maintaining a positive attitude</li>
+                </ul>
+            </div>
+
+            <div class="job-entry">
+                <div class="job-header">
+                    <span class="job-title">Server</span>
+                    <span class="job-company">Rookies Sports Bar & Grill</span>
+                    <span class="job-date">2022-2024</span>
+                </div>
+                <ul>
+                    <li>Processed an average of $1,500–$2,000 in sales per shift with accuracy and efficiency</li>
+                    <li>Maintained knowledge of 100+ menu items, including daily specials, alcoholic beverages, liquor types and allergen information.</li>
+                    <li>Assisted in training 20 new servers, providing guidance on service standards and POS use</li>
+                    <li>Prepped dining areas before shifts, ensuring tables were guest-ready within 30 minutes</li>
+                    <li>Supported team members by covering shifts and assisting during staffing shortages</li>
+                </ul>
+            </div>
+
+            <div class="job-entry">
+                <div class="job-header">
+                    <span class="job-title">Server</span>
+                    <span class="job-company">Spotted Fox Ale House</span>
+                    <span class="job-date">2019-2022</span>
+                </div>
+                <ul>
+                    <li>Upsold appetizers, desserts, and beverages, increasing check averages by 15–20%</li>
+                    <li>Collaborated with 10+ kitchen and front-of-house staff to ensure smooth service flow</li>
+                    <li>Memorized regular guests’ preferences, improving repeat customer satisfaction</li>
+                    <li>Balanced multiple priorities during peak hours serving 100+ guests per shift</li>
+                    <li>Communicated clearly with management regarding inventory needs and guest feedback</li>
+                </ul>
+            </div>
+
+            <div class="job-entry">
+                <div class="job-header">
+                    <span class="job-title">Sales Associate</span>
+                    <span class="job-company">DSW</span>
+                    <span class="job-date">2020-2022</span>
+                </div>
+                <ul>
+                    <li>Managed cash, credit, and POS transactions with 100% drawer accuracy</li>
+                    <li>Drove daily sales by assisting 50+ customers per shift with product selection and recommendations</li>
+                    <li>Restocked and merchandised sales floor to maintain visual standards and improve product accessibility</li>
+                    <li>Resolved customer issues promptly, contributing to higher customer satisfaction and repeat business</li>
+                </ul>
+            </div>
+
+            <div class="job-entry">
+                <div class="job-header">
+                    <span class="job-title">Sales Associate</span>
+                    <span class="job-company">Kohl’s</span>
+                    <span class="job-date">2019-2020</span>
+                </div>
+                <ul>
+                    <li>Maintained in-depth knowledge of 100+ products to answer customer questions and boost confidence in purchases</li>
+                    <li>Managed cash and credit transactions with 100% register accuracy</li>
+                    <li>Collaborated with team members to support store goals during high-traffic periods</li>
+                </ul>
+            </div>
+
+            <div class="job-entry">
+                <div class="job-header">
+                    <span class="job-title">Receptionist</span>
+                    <span class="job-company">Wellness & Nutrition Center</span>
+                    <span class="job-date">2017-2022</span>
+                </div>
+                <ul>
+                    <li>Greeted clients warmly and managed front desk operations daily</li>
+                    <li>Scheduled appointments efficiently using electronic systems</li>
+                    <li>Answered around 20 phone calls a day and addressed inquiries professionally</li>
+                    <li>Performed data entry tasks into various computer systems accurately and promptly</li>
+                </ul>
+            </div>
+
+            <div class="resume-section-header">SKILLS</div>
+            <div class="skills-container">
+                <div class="skill-bubble">On-air experience</div>
+                <div class="skill-bubble">Communication</div>
+                <div class="skill-bubble">Public speaking</div>
+                <div class="skill-bubble">Leadership</div>
+                <div class="skill-bubble">Social media management</div>
+                <div class="skill-bubble">Customer service</div>
+                <div class="skill-bubble">Interviewing</div>
+                <div class="skill-bubble">Fast-paced</div>
+                <div class="skill-bubble">Time-management</div>
+                <div class="skill-bubble">Multitasking</div>
+                <div class="skill-bubble">Broadcast/print writing</div>
+                <div class="skill-bubble">Video editing</div>
+                <div class="skill-bubble">Deadline Management</div>
+                <div class="skill-bubble">Breaking news experience</div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="content">
+        <div class="card">
+            <div class="center-header"><h2 class="tab-title">Content</h2></div>
+
+            <div class="video-grid">
+                
+                <div class="video-item">
+                    <div class="video-placeholder">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/5c0fHHGolnc" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-desc">
+                        <span class="video-title">Reporter Reel</span>
+                        <span class="video-text">As a reporter for both 10/11 News and Nebraska Nightly, I have plenty of content to share. I have chosen a couple of my best pieces to present.</span>
+                    </div>
+                </div>
+
+                <div class="video-item">
+                    <div class="video-placeholder">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/QUX3HH9C2dc" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-desc">
+                        <span class="video-title">Anchor Reel</span>
+                        <span class="video-text">I am a Senior Anchor for Nebraska Nightly, UNL’s student run news broadcast. Here are some of my favorite shows I had the opportunity to anchor.</span>
+                    </div>
+                </div>
+
+                <div class="video-item">
+                    <div class="video-placeholder">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/oOzimpfrjtc" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-desc">
+                        <span class="video-title">Producer Reel</span>
+                        <span class="video-text">As a producer for both 10/11 News and Nebraska Nightly, I am presenting my skills by showcasing a segment of our award-winning show and some photos from my time as Executive Producer and Producer Intern. Click below to see how I would change a PKG to a VOSOTVO and a print piece.</span>
+                    </div>
+                </div>
+
+                <div class="video-item">
+                    <div class="video-placeholder">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/npOV9KpE0S8" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-desc">
+                        <span class="video-title">Sisterhood Video</span>
+                        <span class="video-text">As the Sisterhood Video Executive Director, I had the opportunity to make the 2025 Sisterhood Video for my sorority, Alpha Xi Delta. It has been an honor to present Alpha Xi Delta’s most important value, sisterhood.</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="writing-links">
+                <h3>Work Samples</h3>
+                <p>Being a journalist for both 10/11 News and Nebraska News Service, I have been able to write for the city of Lincoln. While I have many good pieces, these are some I would like to put on display.</p>
+                
+                <a href="producer-piece.pdf" class="writing-btn">Producer Work Sample</a>
+                
+                <a href="writing-piece-1.pdf" class="writing-btn">Writing Piece 1</a>
+                <a href="writing-piece-2.pdf" class="writing-btn">Writing Piece 2</a>
+                <a href="writing-piece-3.pdf" class="writing-btn">Writing Piece 3</a>
+                <a href="writing-piece-4.pdf" class="writing-btn">Writing Piece 4</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="references">
+        <div class="card">
+            <div class="center-header"><h2 class="tab-title">References</h2></div>
+
+            <div class="reference-box">
+                <p><strong>Ken Fischer, Assistant Professor of Practice, UNL</strong></p>
+                <p>January 9, 2026<br>
+                To: Search Committee<br>
+                I am writing to you to recommend Mackenzie Noble. Now in her senior year, Ms. Noble is an employee and volunteer on Nebraska Nightly, the university’s student television newscast. I am one of her instructors and supervisors. She started on the news team during her freshman year. I appreciate her punctuality and quest for excellence.</p>
+                <p>After just one semester, Mackenzie joined our student leadership team. Later, in the spring of 2024, she assumed the role of Executive Producer of the newscast. She led the Nebraska Nightly team by mentoring students, coordinating the day-to-day operation, and serving as the lead producer. The hard work of Ms. Noble and her team paid off. In April 2025, the Nebraska Nightly team won first place at the Broadcast Education Association Festival of Media Arts. The award was for the top student newscast in the nation.</p>
+                <p>Mackenzie excels in both the classroom and the newsroom. She is a team player and can be both a follower and a leader. I have confidence in assigning her any work, large or small. In the spring of 2025, I added to her duties the position of teaching assistant in my upper-division television reporting course. The students benefited from her guidance. She remains calm and in control as she juggles several tasks against deadlines. Mackenzie is demanding of others, but most of all herself.</p>
+                <p>Mackenzie is always learning; she continues to grow as a producer and anchor/reporter. Our student training operation would not function without the dedicated service of student staff like Mackenzie Noble. She was selected for a competitive internship with Gray Media in 2025. Ms. Noble is now ready to join the profession upon graduation in May 2026. She is a joy to work with and has the respect of her peers. I highly recommend her.</p>
+                <p>Kenneth A. Fischer<br>
+                Assistant Professor of Practice<br>
+                Andersen Hall<br>
+                University of Nebraska–Lincoln<br>
+                kfischer@unl.edu<br>
+                402-472-3187</p>
+            </div>
+
+            <div class="reference-box">
+                <p><strong>Cece Berger, Best Friend</strong></p>
+                <p>When I think of Mackenzie Noble, the first word that comes to mind is radiant. She is always beaming with light– happy to be there, excited, and ready to get the show on the road. She truly shines in every room she walks into.</p>
+                <p>The second word I would use is selfless. Mackenzie constantly puts others first, whether it’s baking banana bread with thoughtful notes for everyone or taking time out of her day to sit with our house mom and listen to her talk for an hour– she does everything for the benefit of others.</p>
+                <p>Next is charisma. It’s hard to explain, but Mackenzie naturally draws people in with her personality and presence.</p>
+                <p>She is also determined. Once she sets her mind to something, she gets it done, whether it’s building her Oscar Mayer project or striving to be one of the best candidates for any opportunity, she gives everything her full effort.</p>
+                <p>Another word is reliable. I could call Mackenzie any day of the week and know she would be there for me without hesitation, no matter how far or inconvenient it might be.</p>
+                <p>She is incredibly joyous, always laughing, smiling, and spreading positivity. Being around her is genuinely uplifting and contagious.</p>
+                <p>Mackenzie is also unconditional in the way she loves her friends. Even when someone upsets her, she doesn’t hold grudges and continues to care deeply and fully.</p>
+                <p>She is fierce, bold, confident, and powerful, especially on stage. While she is kind, she also stands up for herself and others with strength and passion.</p>
+                <p>Another word that defines her is pure. Mackenzie has a genuinely sweet soul and an authentic heart that makes her truly special.</p>
+                <p>Finally, she is addicting… in the best way. Everyone wants to be around her, everyone wants to know where she is, and it’s easy to see why she’s so loved by so many.</p>
+                <p>These are the ten words I would use to describe Mackenzie Noble.</p>
+                <p>Cece Berger<br>
+                612-940-3974</p>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
